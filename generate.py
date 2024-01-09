@@ -20,6 +20,14 @@ with torch.no_grad():
 
 end_time = time.time()
 
+prediction_time = end_time - start_time
+
 print("Label probs:", probs)  # prints: [[0.9927937  0.00421068 0.00299572]]
 
-print(f"Prediction time: {end_time - start_time} seconds")
+print(f"Prediction time: {prediction_time} seconds")
+
+
+
+# Save the time to a file
+with open("gpu_speed.txt", "w") as file:
+    file.write(f"{prediction_time:.3f} seconds")
